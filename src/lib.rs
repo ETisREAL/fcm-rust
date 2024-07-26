@@ -1,4 +1,4 @@
-#![doc(html_root_url = "https://panicbit.github.io/fcm-rust/fcm/")]
+#![doc(html_root_url = "https://ETisREAL.github.io/fcm-rust/fcm/")]
 //! fcm
 //! ===
 //!
@@ -6,7 +6,7 @@
 //!
 //! # Examples:
 //!
-//! To send out a FCM Message with some custom data:
+//! To send out a FCM FCMRequest with some custom data:
 //!
 //! ```no_run
 //! # use std::collections::HashMap;
@@ -17,7 +17,7 @@
 //! let mut map = HashMap::new();
 //! map.insert("message", "Howdy!");
 //!
-//! let mut builder = fcm::MessageBuilder::new("<FCM API Key>", "<registration id>");
+//! let mut builder = fcm::FCMRequestBuilder::new("<FCM API Key>", "<project>", "<registration id>", None);
 //! builder.data(&map);
 //!
 //! let response = client.send(builder.finalize()).await?;
@@ -49,7 +49,7 @@
 //! notification_builder.body("Do you want to catch up later?");
 //!
 //! let notification = notification_builder.finalize();
-//! let mut message_builder = fcm::MessageBuilder::new("<FCM API Key>", "<registration id>");
+//! let mut message_builder = fcm::FCMRequestBuilder::new("<FCM API Key>", "<project>", "<registration id>", None);
 //! message_builder.notification(notification);
 //!
 //! let response = client.send(message_builder.finalize()).await?;

@@ -1,17 +1,17 @@
 [package]
-name = "fcm"
-version = "0.9.2"
+name = "fcm_http1"
+version = "0.1.1"
 authors = [
-  "Suvish Varghese Thoovamalayil <vishy1618@gmail.com>",
-  "panicbit <panicbit.dev@gmail.com>",
-  "Julius de Bruijn <pimeys@gmail.com>"]
+  "Ettore Pelosato <ettore.pelosato@gmail.com>",
+  "etisreal <info@etisreal.cc>",
+]
 description = "An API to talk to FCM (Firebase Cloud Messaging) in Rust"
 license = "MIT"
-homepage = "https://github.com/panicbit/fcm-rust"
-repository = "https://github.com/panicbit/fcm-rust"
+homepage = "https://github.com/ETisREAL/fcm-rust"
+repository = "https://github.com/ETisREAL/fcm-rust"
 documentation = "https://docs.rs/fcm/"
 keywords = ["fcm", "firebase", "notification"]
-edition = "2018"
+edition = "2021"
 
 [features]
 default = ["native-tls"]
@@ -22,8 +22,8 @@ vendored-tls = ["reqwest/native-tls-vendored"]
 [dependencies]
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
-erased-serde = "0.3"
-reqwest = {version = "0.11.0", features = ["json"], default-features=false}
+erased-serde = "0.4"
+reqwest = {version = "0.12.5", features = ["json"]}
 chrono = "0.4"
 log = "0.4"
 

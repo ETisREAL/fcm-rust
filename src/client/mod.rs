@@ -2,7 +2,7 @@ pub mod response;
 
 pub use crate::client::response::*;
 
-use crate::message::Message;
+use crate::message::FCMRequest;
 use reqwest::header::{AUTHORIZATION, CONTENT_LENGTH, CONTENT_TYPE, RETRY_AFTER};
 use reqwest::{Body, StatusCode};
 
@@ -28,16 +28,19 @@ impl Client {
         Client { http_client }
     }
 
-    /// Try sending a `Message` to FCM.
-    pub async fn send(&self, message: Message<'_>) -> Result<FcmResponse, FcmError> {
+    /// Try sending a `FCMRequest` to FCM.
+    pub async fn send(&self, message: FCMRequest<'_>) -> Result<FcmResponse, FcmError> {
         let payload = serde_json::to_vec(&message.body).unwrap();
 
         let request = self
             .http_client
-            .post("https://fcm.googleapis.com/fcm/send")
+            .post(format!(
+                "https://fcm.googleapis.com/v1/projects/{}/messages:send",
+                message.project
+            ))
             .header(CONTENT_TYPE, "application/json")
             .header(CONTENT_LENGTH, format!("{}", payload.len() as u64).as_bytes())
-            .header(AUTHORIZATION, format!("key={}", message.api_key).as_bytes())
+            .header(AUTHORIZATION, format!("Bearer {}", message.api_key).as_bytes())
             .body(Body::from(payload))
             .build()?;
         let response = self.http_client.execute(request).await?;
