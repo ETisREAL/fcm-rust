@@ -1,5 +1,5 @@
 use argparse::{ArgumentParser, Store};
-use fcm::{Client, MessageBuilder};
+use fcm_http1::{Client, MessageBuilder};
 use serde::Serialize;
 
 #[derive(Serialize)]
@@ -26,8 +26,17 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
 
     let client = Client::new();
     let data = CustomData { message: "howdy" };
+    let mut notification_builder = fcm_http1::NotificationBuilder::new();
+    notification_builder.title("Sample message");
+    let notification = notification_builder.finalize();
 
-    let mut builder = MessageBuilder::new(&api_key, &device_token);
+    let reg_ids = vec![device_token];
+    let mut builder = MessageBuilder::new_multi(&api_key, &reg_ids);
+    builder.registration_ids(reg_ids.as_slice());
+    builder.notification(notification);
+    builder.time_to_live(300);
+    builder.priority(fcm_http1::Priority::Normal);
+    builder.content_available(true); // Needed for iOS
     builder.data(&data)?;
 
     let response = client.send(builder.finalize()).await?;

@@ -51,7 +51,7 @@ pub struct Notification<'a> {
 /// # Examples
 ///
 /// ```rust
-/// use fcm::NotificationBuilder;
+/// use fcm_http1::NotificationBuilder;
 ///
 /// let mut builder = NotificationBuilder::new();
 //  builder.title("Australia vs New Zealand");

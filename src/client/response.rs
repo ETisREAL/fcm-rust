@@ -6,6 +6,9 @@ use std::{error::Error, fmt, str::FromStr};
 /// Referred from [Firebase documentation](https://firebase.google.com/docs/cloud-messaging/http-server-ref#table9)
 #[derive(Deserialize, Debug, PartialEq, Copy, Clone)]
 pub enum ErrorReason {
+    /// Communicates that an API is no longer maintained/available.
+    DeprecatedApi,
+
     /// Check that the request contains a registration token (in the `to` or
     /// `registration_ids` field).
     MissingRegistration,

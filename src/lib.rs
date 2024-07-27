@@ -1,4 +1,4 @@
-#![doc(html_root_url = "https://panicbit.github.io/fcm-rust/fcm/")]
+#![doc(html_root_url = "https://ETisREAL.github.io/fcm-rust/fcm/")]
 //! fcm
 //! ===
 //!
@@ -12,12 +12,12 @@
 //! # use std::collections::HashMap;
 //! # #[tokio::main]
 //! # async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-//! let client = fcm::Client::new();
+//! let client = fcm_http1::Client::new();
 //!
 //! let mut map = HashMap::new();
 //! map.insert("message", "Howdy!");
 //!
-//! let mut builder = fcm::MessageBuilder::new("<FCM API Key>", "<registration id>");
+//! let mut builder = fcm_http1::MessageBuilder::new("<FCM API Key>", "<registration id>");
 //! builder.data(&map);
 //!
 //! let response = client.send(builder.finalize()).await?;
@@ -30,7 +30,7 @@
 //!
 //! ```rust
 //! # fn main() {
-//! let mut builder = fcm::NotificationBuilder::new();
+//! let mut builder = fcm_http1::NotificationBuilder::new();
 //! builder.title("Hey!");
 //! builder.body("Do you want to catch up later?");
 //! let notification = builder.finalize();
@@ -42,14 +42,14 @@
 //! ```no_run
 //! # #[tokio::main]
 //! # async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-//! let client = fcm::Client::new();
+//! let client = fcm_http1::Client::new();
 //!
-//! let mut notification_builder = fcm::NotificationBuilder::new();
+//! let mut notification_builder = fcm_http1::NotificationBuilder::new();
 //! notification_builder.title("Hey!");
 //! notification_builder.body("Do you want to catch up later?");
 //!
 //! let notification = notification_builder.finalize();
-//! let mut message_builder = fcm::MessageBuilder::new("<FCM API Key>", "<registration id>");
+//! let mut message_builder = fcm_http1::MessageBuilder::new("<FCM API Key>", "<registration id>");
 //! message_builder.notification(notification);
 //!
 //! let response = client.send(message_builder.finalize()).await?;

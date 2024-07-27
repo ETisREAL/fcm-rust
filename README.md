@@ -1,12 +1,12 @@
 # fcm
-[![Cargo tests](https://github.com/panicbit/fcm-rust/actions/workflows/test.yml/badge.svg)](https://github.com/panicbit/fcm-rust/actions/workflows/test.yml)
-[![Coveralls](https://img.shields.io/coveralls/panicbit/fcm-rust.svg?style=flat-square)][coveralls]
+[![Cargo tests](https://github.com/ETisREAL/fcm-rust/actions/workflows/test.yml/badge.svg)](https://github.com/ETisREAL/fcm-rust/actions/workflows/test.yml)
+[![Coveralls](https://img.shields.io/coveralls/ETisREAL/fcm-rust.svg?style=flat-square)][coveralls]
 [![Crates.io Version](https://img.shields.io/crates/v/fcm.svg?style=flat-square)][crates.io]
 [![Crates.io Downloads](https://img.shields.io/crates/dv/fcm.svg?style=flat-square)][crates.io]
 [![Crates.io License](https://img.shields.io/crates/l/fcm.svg?style=flat-square)][crates.io]
 
-[travis]: https://travis-ci.org/panicbit/fcm-rust
-[coveralls]: https://coveralls.io/github/panicbit/fcm-rust
+[travis]: https://travis-ci.org/ETisREAL/fcm-rust
+[coveralls]: https://coveralls.io/github/ETisREAL/fcm-rust
 
 [Matrix chat](https://matrix.to/#/#rust-push:nauk.io?via=nauk.io&via=matrix.org&via=shine.horse)
 

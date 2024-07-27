@@ -58,7 +58,7 @@ pub struct MessageBody<'a> {
 /// using various utility methods and finally send it.
 /// # Examples:
 /// ```rust
-/// use fcm::MessageBuilder;
+/// use fcm_http1::MessageBuilder;
 ///
 /// let mut builder = MessageBuilder::new("<FCM API Key>", "<registration id>");
 /// builder.dry_run(true);
@@ -76,7 +76,7 @@ pub struct Message<'a> {
 /// # Examples
 ///
 /// ```rust
-/// use fcm::MessageBuilder;
+/// use fcm_http1::MessageBuilder;
 ///
 /// let mut builder = MessageBuilder::new("<FCM API Key>", "<registration id>");
 /// builder.dry_run(true);
@@ -163,7 +163,7 @@ impl<'a> MessageBuilder<'a> {
     /// Set the priority of the message. You can set Normal or High priorities.
     /// # Examples:
     /// ```rust
-    /// use fcm::{MessageBuilder, Priority};
+    /// use fcm_http1::{MessageBuilder, Priority};
     ///
     /// let mut builder = MessageBuilder::new("<FCM API Key>", "<registration id>");
     /// builder.priority(Priority::High);
@@ -211,7 +211,7 @@ impl<'a> MessageBuilder<'a> {
     ///
     /// # Examples:
     /// ```rust
-    /// use fcm::MessageBuilder;
+    /// use fcm_http1::MessageBuilder;
     /// use std::collections::HashMap;
     ///
     /// let mut map = HashMap::new();
@@ -229,7 +229,7 @@ impl<'a> MessageBuilder<'a> {
     /// Use this to set a `Notification` for the message.
     /// # Examples:
     /// ```rust
-    /// use fcm::{MessageBuilder, NotificationBuilder};
+    /// use fcm_http1::{MessageBuilder, NotificationBuilder};
     ///
     /// let mut builder = NotificationBuilder::new();
     /// builder.title("Hey!");
